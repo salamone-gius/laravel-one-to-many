@@ -47,3 +47,13 @@
     - lancio il seeder:
         php artisan db:seed.
 
+8. aggiungo una select al create.blade dove permetterò all'utente di aggiungere una categoria al nuovo post:
+
+    - in app > Http > Controllers > Admin > PostController:
+
+        - importo il model Category;
+
+        - dentro al metodo create() importo tutte le categorie e le inietto nella view che mi restituirà.
+
+    - in create.blade, all'interno del form, aggiungo una select con le categorie da associare ad ogni nuovo post.
+

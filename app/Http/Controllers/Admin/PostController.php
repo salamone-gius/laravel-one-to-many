@@ -11,6 +11,8 @@ use Illuminate\Support\Str;
 // importo il model di riferimento
 use App\Post;
 
+// collegate le due tabelle, importo anche il modello delle categorie
+use App\Category;
 
 class PostController extends Controller
 {
@@ -35,8 +37,11 @@ class PostController extends Controller
      */
     public function create()
     {
-        // restituisce la view
-        return view('admin.posts.create');
+        // importo tutte le categorie
+        $categories = Category::all();
+
+        // restituisco la view del create e le categorie compattate
+        return view('admin.posts.create', compact('categories'));
     }
 
     /**
