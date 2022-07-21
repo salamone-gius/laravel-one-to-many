@@ -26,3 +26,6 @@
     - lancio la migration appena impostata che aggiungerà la nuova colonna alla tabella SECONDARIA e la relativa RELAZIONE con la tabella PRINCIPALE:
         php artisan migrate
 
+5. creo il model della nuova tabella ('categories'):
+    php artisan make:model NomeTabellaAlSingolare
+
