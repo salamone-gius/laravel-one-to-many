@@ -1,0 +1,4 @@
+// --- AGGIUNTA NUOVA ENTITà (TABELLA) E RELATIVA RELAZIONE--- \\
+
+1. lancio la migration che creerà una nuova entità/tabella ('categories'):
+    php artisan make:migration create_nometabella_table
