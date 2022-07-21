@@ -31,13 +31,16 @@
                 <div class="form-group">
                     <label for="category">Category</label>
                     {{-- come attributo name inserisco il nome della colonna che mette in relazione la tabella posts con la tabella categories (foreign key) --}}
-                    <select class="form-control" id="category" name="category_id">
+                    <select class="form-control @error('category_id') is-invalid @enderror" id="category" name="category_id">
                         <option value="">Select category</option>
                         {{-- ciclo le categorie e inserisco l'id delle categorie nel value di option --}}
                         @foreach ($categories as $category)
                             <option value="{{$category->id}}">{{$category->name}}</option>
                         @endforeach
                     </select>
+                    @error('category_id')
+                        <div class="alert alert-danger">{{$message}}</div>
+                    @enderror
                 </div>
                 <div class="form-group form-check">
                     <input type="checkbox" class="form-check-input @error('published') is-invalid @enderror" id="published" name="published" {{old('published') ? 'checked' : ''}}>
