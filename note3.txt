@@ -1,6 +1,6 @@
 // --- AGGIUNTA NUOVA ENTITà (TABELLA) E RELATIVA RELAZIONE--- \\
 
-1. lancio la migration che creerà una nuova entità/tabella ('categories'):
+1. creo la migration che creerà una nuova entità/tabella ('categories'):
     php artisan make:migration create_nometabella_table
 
 2. in database > migrations trovo la migration appena creata dove:
@@ -9,5 +9,20 @@
 
     - all'interno del metodo down() scriverò le istruzioni di rollback (cosa fare se si annulla l'ultima migration).
 
-3. lancio il comando che creerà la tabella a db:
+3. lancio la migration appena impostata che creerà la tabella a db:
     php artisan migrate
+
+4. una volta individuata la tabella principale e quella secondaria, creo la relazione tra le tabelle a livello di db:
+
+    - creo la migration che aggiungerà una nuova colonna (la foreign key è legata alla primary key della tabella principale) alla tabella DIPENDENTE o SECONDARIA ('posts'):
+        php artisan make:migration add_column_nome_nuova_colonna_nome_tabella_table --table=nome_tabella
+
+    - in database > migrations trovo la migration appena creata dove:
+
+        - all'interno del metodo up() andrò a definire la nuova colonna, il relativo tipo di dato e la RELAZIONE con la tabella principale(doc: laravel/migrations/columns);
+
+        - all'interno del metodo down() scrivo le istruzioni per droppare PRIMA la relazione (dropForeign(['nome_colonna'])) e poi la colonna (dropColumn('nome_colonna'))
+
+    - lancio la migration appena impostata che aggiungerà la nuova colonna alla tabella SECONDARIA e la relativa RELAZIONE con la tabella PRINCIPALE:
+        php artisan migrate
+
