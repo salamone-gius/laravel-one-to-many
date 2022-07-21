@@ -2,3 +2,12 @@
 
 1. lancio la migration che creerà una nuova entità/tabella ('categories'):
     php artisan make:migration create_nometabella_table
+
+2. in database > migrations trovo la migration appena creata dove:
+
+    - all'interno del metodo up() andrò a costruire la struttura della nuova tabella (colonne e tipi di dato che la popoleranno);
+
+    - all'interno del metodo down() scriverò le istruzioni di rollback (cosa fare se si annulla l'ultima migration).
+
+3. lancio il comando che creerà la tabella a db:
+    php artisan migrate
