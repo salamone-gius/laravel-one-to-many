@@ -59,4 +59,6 @@
 
     - in app > Http > Controllers > Admin > PostController nel metodo store() aggiungo la validazione relativa a questo nuovo campo della tabella posts;
 
-    - in create.blade aggiungo la stampa dell'errore in caso di validazione fallita.
+    - in create.blade aggiungo la stampa dell'errore in caso di validazione fallita;
+
+    - aggiungo la gestione degli old all'interno del tag option.
