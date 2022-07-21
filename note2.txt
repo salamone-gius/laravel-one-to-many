@@ -1,0 +1,7 @@
+1. scarico zip di laravel-auth-master, estraggo, rinomino in laravel-one-to-many, apro in VS Code e pubblico la nuova repo
+
+2. installo le dipendenze vendor e node_modules (una alla volta):
+    composer install
+    npm install
+    npm run dev
+
