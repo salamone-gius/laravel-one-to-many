@@ -34,3 +34,16 @@
     - nel model della tabella principale (o indipendente) specifico il tipo di relazione attraverso la creazione di un metodo pubblico che si chiamerà come la tabella secondaria (o dipendente) a cui si andrà a legare. Il metodo restituisce il tipo di relazione (in questo caso relazione uno a molti) attraverso il metodo hasMany('Namespace\ModelloTabellaSecondaria'). Si deve tradurre: "una categoria ha molti posts";
 
     - nel model della tabella dipendente (o secondaria) specifico il tipo di relazione attraverso la creazione di un metodo pubblico che si chiamerà come la tabella principale (o indipendente) a cui si andrà a legare. Il metodo restituisce il tipo di relazione (in questo caso relazione uno a molti) attraverso il metodo belongsTo('Namespace\ModelloTabellaPrincipale'). Si deve tradurre: "un singolo post appartiene ad una sola categoria".
+
+7. popolo la nuova tabella attraverso un seeder:
+
+    - creo il seeder:
+        php artisan make:seeder NomeTabellaTableSeeder;
+
+    - importo il model della tabella che devo popolare nel seeder appena creato in database > seeds;
+
+    - all'interno del metodo run() inserisco le direttive su come e con quali dati popolare la tabella;
+
+    - lancio il seeder:
+        php artisan db:seed.
+
