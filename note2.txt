@@ -5,3 +5,4 @@
     npm install
     npm run dev
 
+3. copio il file .env.example in .env e collego il DB 'laravel_auth'
