@@ -21,3 +21,5 @@
 8. verifico se effettivamente sono state create tutte le rotte per le operazioni di CRUD:
     php artisan route:list
 
+9. posso cominciare a creare tutte le operazioni di CRUD
+
