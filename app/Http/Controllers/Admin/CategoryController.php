@@ -25,8 +25,8 @@ class CategoryController extends Controller
 
     public function create()
     {
-        // restituisco la view della pagina blade index.blade
-        return view('admin.categories.index');
+        // restituisco la view della pagina blade create.blade
+        return view('admin.categories.create');
     }
 
     /**

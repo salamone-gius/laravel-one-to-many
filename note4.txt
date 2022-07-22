@@ -27,6 +27,9 @@
 
 1. in resources > view > admin creo la cartella che conterrà tutte le pagine blade relative alla CRUD della nuova tabella
 
-2. in resources > view > admin > nome_tabella creo la pagina index.blade
+2. in resources > view > admin > nome_tabella creo la pagina create.blade
 
-3. in app > Http > Controllers > Admin > NomeTabellaSingolareController.php, all'interno del metodo create(), restituisco la view della nuova index.blade
+3. in app > Http > Controllers > Admin > NomeTabellaSingolareController.php, all'interno del metodo create(), restituisco la view della nuova create.blade
+
+4. in resources > view > admin > nome_tabella > create.blade.php creo la sezione relativa alla CREAZIONE (da parte dell'utente) di un nuovo elemento nella tabella:
+
