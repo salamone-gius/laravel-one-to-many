@@ -105,11 +105,14 @@ class PostController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    // passo il model e il singolo $post come argomento del metodo show (dependancy injection)
+    // passo il model e il singolo $post come argomento del metodo edit (dependancy injection)
     public function edit(Post $post)
     {
-        // restituisco la view di modifica del post e il singolo post (da modificare)
-        return view('admin.posts.edit', compact('post'));
+        // importo tutte le categorie
+        $categories = Category::all();
+
+        // restituisco la view di modifica del post, il singolo post (da modificare) e tutte le categorie
+        return view('admin.posts.edit', compact('post', 'categories'));
     }
 
     /**
@@ -129,6 +132,7 @@ class PostController extends Controller
             'title' => 'required|string|max:255',
             'content' => 'required|string|max:65535',
             'published' => 'sometimes|accepted',
+            'category_id' => 'nullable|exists:categories,id',
         ]);
 
         // prendo i dati dalla request

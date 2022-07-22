@@ -62,3 +62,15 @@
     - in create.blade aggiungo la stampa dell'errore in caso di validazione fallita;
 
     - aggiungo la gestione degli old all'interno del tag option.
+
+9. aggiungo la possibilità di modificare la categoria di un post in fase di editing:
+
+    - in app > Http > Controllers > Admin > PostController nel metodo edit():
+
+        - importo tutte le categorie;
+
+        - restituisco le categorie compattate.
+
+    - in edit.blade copio/incollo il form relativo all'assegnazione della categoria della create.blade modificando l'old.
+
+    - in app > Http > Controllers > Admin > PostController nel metodo update() aggiungo la relativa validazione prima del processo di salvataggio del dato a db.
