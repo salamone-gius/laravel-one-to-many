@@ -25,7 +25,7 @@
                             <td>{{$category->name}}</td>
                             <td>{{$category->slug}}</td>
                             <td style="min-width: 350px;">
-                                <a href="{{route('admin.categories.show', $category->id)}}" class="btn btn-primary">Show category</a>
+                                <a href="{{route('admin.categories.show', $category->id)}}" class="btn btn-primary">Show associated posts</a>
                                 <a href="{{route('admin.categories.edit', $category->id)}}" class="btn btn-warning">Edit category</a>
                                 <form class="d-inline-block" action="{{route('admin.categories.destroy', $category->id)}}" method="POST">
                                     @csrf
