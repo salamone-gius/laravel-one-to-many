@@ -18,10 +18,12 @@
                 </div>
             </div>
             <div class="d-flex justify-content-center align-items-center m-4">
-                <a href="{{route('admin.posts.index')}}" class="btn btn-secondary">See all posts</a>
+                <a href="{{route('admin.posts.index')}}" class="btn btn-secondary m-4">See all posts</a>
+                <a href="{{route('admin.posts.create')}}" class="btn btn-success">Create new post</a>
             </div>
             <div class="d-flex justify-content-center align-items-center m-4">
-                <a href="{{route('admin.posts.create')}}" class="btn btn-success">Create new post</a>
+                <a href="{{route('admin.categories.index')}}" class="btn btn-secondary m-4">See all categories</a>
+                <a href="{{route('admin.categories.create')}}" class="btn btn-success">Create new category</a>
             </div>
         </div>
     </div>

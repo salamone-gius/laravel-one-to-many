@@ -67,3 +67,16 @@
         - salvo i dati a db in maniera permanente con il metodo save() applicato al nuovo elemento.
 
     5.3 REINDIRIZZAMENTO: restituisco il reindirizzamento alla rotta che voglio visualizzare dopo il submit.
+
+// --- READ (sezioni index() e show() del controller) --- \\
+
+1. in resources > view > admin > nome_tabella creo la pagina index.blade che mi restituirà l'elenco degli elementi della tabella:
+
+    - estendo il layout di app.blade (@extends) e creo una @section('content') dove inserirò il contenuto;
+
+    - ciclando l'array passatomi dal controller, inserisco tutti i dati.
+
+2. in app > Http > Controllers > Admin > NomeTabellaSingolareController.php, all'interno del metodo index(), passo tutti gli elementi della tabella relativa e restituisco la view della nuova index.blade
+
+3. aggiungo i link con le rotte alle pagine blade appena create alle pagine esistenti
+

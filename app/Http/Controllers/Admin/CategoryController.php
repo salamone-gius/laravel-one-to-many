@@ -18,9 +18,15 @@ class CategoryController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    
+    
     public function index()
     {
-        //
+        // passo alla pagina tutte le categorie
+        $categories = Category::all();
+
+        // restituisco la view della pagina blade index.blade con la versione compatta di tutte le categorie
+        return view('admin.categories.index', compact('categories'));
     }
 
     /**
