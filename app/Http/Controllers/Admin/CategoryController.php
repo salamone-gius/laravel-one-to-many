@@ -2,6 +2,12 @@
 
 namespace App\Http\Controllers\Admin;
 
+// importo la classe helper (prima dei modelli) che ha molti metodi per le stringhe che possono tornare utili, tipo per la generazione dello slug
+use Illuminate\Support\Str;
+
+// importo il model relativo
+use App\Category;
+
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
@@ -35,9 +41,33 @@ class CategoryController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+
+    // come argomento del metodo store() viene passato il modello dei dati submittati dal form (Request $request)
     public function store(Request $request)
     {
-        //
+        // 1. VALIDAZIONE
+        // utilizzo il metodo validate e passo un array associativo come argomento
+        $request->validate(
+            [
+                // 'colonna' => 'tutte le proprietà che il dato in ingresso deve avere' (doc: validation rules)
+                'name' => 'required|string|max:100|unique:categories,name',
+            ]
+        );
+
+        // 2. CREAZIONE DELLA NUOVA CATEGORIA
+        // passo tutti i dati in arrivo dal form ($request) dentro la variabile $data
+        $data = $request->all();
+        // istanzio il modello per la creazione di una nuova categoria
+        $newCategory = new Category();
+        // imposto con quali dati in arrivo andrò a riempire quali colonne
+        $newCategory->name = $data['name'];
+        $newCategory->slug = Str::of($data['name'])->slug('-');
+        // salvo i dati a db in maniera permanente
+        $newCategory->save();
+
+        // 3. REINDIRIZZAMENTO AD UNA VIEW
+        // reindirizzo alla rotta che restituisce la view dell'elenco di tutte le categorie
+        return redirect()->route('admin.categories.index');
     }
 
     /**

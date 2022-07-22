@@ -56,3 +56,14 @@
             nel controller, all'interno del metodo store():
                 dd($request->all()).
 
+5. in app > Http > Controllers > Admin > NomeTabellaSingolareController.php,  importo il model relativo. Al metodo store() arrivano i dati submittati dal form (Request $request). Con questi dati dovrò fare principalmente 3 cose:
+
+    5.1 VALIDAZIONE: all'interno del metodo validate() applicato alla $request, scrivo tutte le caratterische che i dati in ingresso devono avere, colonna per colonna (doc: validation rules);
+
+    5.2 CREAZIONE DEL NUOVO ELEMENTO:
+        - passo tutti i dati in arrivo dal form ($request) dentro la variabile $data;
+        - istanzio il modello per la creazione del nuovo elemento;
+        - imposto con quali dati in arrivo andrò a riempire quali colonne;
+        - salvo i dati a db in maniera permanente con il metodo save() applicato al nuovo elemento.
+
+    5.3 REINDIRIZZAMENTO: restituisco il reindirizzamento alla rotta che voglio visualizzare dopo il submit.
