@@ -12,7 +12,7 @@
 
             {{-- nell'attributo action del form inserisco la rotta per immagazzinare tutti i dati inseriti nel form --}}
             {{-- nell'attributo method del form inserisco il metodo del form che INVIA i dati al db --}}
-            <form action="{{route('admin.posts.store')}}" method="POST">
+            <form action="{{route('admin.categories.store')}}" method="POST">
 
                 {{-- all'interno del form inserisco il token di validazione di laravel --}}
                 @csrf
@@ -22,7 +22,7 @@
                     <label for="name">Name</label>
 
                     {{-- l'attributo name (importantissimo) deve matchare con il nome della colonna che dovrà andare a riempire --}}
-                    <input type="text" class="form-control @error('title') is-invalid @enderror" id="name" name="name" value="{{old('name')}}">
+                    <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" name="name" value="{{old('name')}}">
 
                     {{-- segnalazione di errore in caso di validazione fallita --}}
                     @error('name')
