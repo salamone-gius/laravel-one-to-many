@@ -15,3 +15,9 @@
 
 6. creo il controller che farà da tramite tra il model e una view direttamente con namespace 'Admin' e già scaffoldato (!?) per le operazioni di CRUD (con --resource)
     php artisan make:controller Admin/NomeTabellaSingolareController --resource
+
+7. in routes > web.php, all'interno del middleware Auth namespace Admin, creo la rotta per arrivare ai metodi del nuovo controller
+
+8. verifico se effettivamente sono state create tutte le rotte per le operazioni di CRUD:
+    php artisan route:list
+

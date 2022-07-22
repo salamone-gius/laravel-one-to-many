@@ -50,6 +50,9 @@ Route::middleware('auth')
     // aggiungo la rotta per il PostController. Il metodo resource() nel middleware crea in automatico tutte le rotte del PostController utili per tutte le operazioni di CRUD (index, create, ecc...)
     Route::resource('posts', 'PostController');
 
+    // aggiungo la rotta per il CategoryController. Il metodo resource() nel middleware crea in automatico tutte le rotte del CategoryController utili per tutte le operazioni di CRUD (index, create, ecc...)
+    Route::resource('categories', 'CategoryController');
+
     });
 
 
