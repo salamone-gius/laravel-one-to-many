@@ -22,9 +22,11 @@ class CategoryController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
     public function create()
     {
-        //
+        // restituisco la view della pagina blade index.blade
+        return view('admin.categories.index');
     }
 
     /**

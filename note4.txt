@@ -23,3 +23,10 @@
 
 9. posso cominciare a creare tutte le operazioni di CRUD
 
+// --- CREATE (sezioni create() e store() del controller) --- \\
+
+1. in resources > view > admin creo la cartella che conterrà tutte le pagine blade relative alla CRUD della nuova tabella
+
+2. in resources > view > admin > nome_tabella creo la pagina index.blade
+
+3. in app > Http > Controllers > Admin > NomeTabellaSingolareController.php, all'interno del metodo create(), restituisco la view della nuova index.blade
