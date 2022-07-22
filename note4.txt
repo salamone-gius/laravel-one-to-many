@@ -1,0 +1,17 @@
+// --- CRUD --- \\
+
+1. creo il db direttamente con phpMyAdmin
+
+2. creo la tabella dentro al db:
+    php artisan make:migration create_nome_tabella_table
+
+3. in database > migrations > data_odierna_create_nome_tabella_table.php inizializzo le colonne della tabella e indico il tipo di dato con cui le andrò a popolare
+
+4. creo a db la tabella e le colonne appena inizializzate:
+    php artisan migrate
+
+5. creo il model che sarà il modello della tabella che farà da tramite tra laravel e la tabella a db
+    php artisan make:model NomeTabellaSingolare
+
+6. creo il controller che farà da tramite tra il model e una view direttamente con namespace 'Admin' e già scaffoldato (!?) per le operazioni di CRUD (con --resource)
+    php artisan make:controller Admin/NomeTabellaSingolareController --resource
