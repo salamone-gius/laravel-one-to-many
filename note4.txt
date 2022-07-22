@@ -80,3 +80,17 @@
 
 3. aggiungo i link con le rotte alle pagine blade appena create alle pagine esistenti
 
+4. in resources > view > admin > nome_tabella creo la pagina show.blade che mi restituirà il singolo elemento della tabella:
+
+    - estendo il layout di app.blade (@extends) e creo una @section('content') dove inserirò il contenuto;
+
+    - usando gli elementi passatimi dal controller, inserisco tutti i dati.
+
+5. in app > Http > Controllers > Admin > NomeTabellaSingolareController.php:
+
+    - passo il singolo elemento della tabella come argomento del metodo show() (dependancy injection);
+    
+    - restituisco la view della nuova show.blade e la versione compatta del singolo elemento
+
+6. aggiungo i link con le rotte alle pagine blade appena create alle pagine esistenti
+

@@ -82,9 +82,12 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+
+    // passo la singola categoria come argomento del metodo show() (dependency injection)
+    public function show(Category $category)
     {
-        //
+        // restiruisco la view della pagina show.blade e la versione compatta della singola categoria
+        return view('admin.categories.show', compact('category'));
     }
 
     /**
