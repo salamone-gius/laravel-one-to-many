@@ -33,3 +33,26 @@
 
 4. in resources > view > admin > nome_tabella > create.blade.php creo la sezione relativa alla CREAZIONE (da parte dell'utente) di un nuovo elemento nella tabella:
 
+    - estendo il layout di app.blade (@extends) e creo una @section('content') dove inserirò il contenuto;
+
+    - creo il form per la creazione di un nuovo post:
+
+        - nell'attributo action del tag form definisco la rotta che punta allo store per immagazzinare gli elementi del nuovo post (al submit creerà una nuova riga della tabella):
+            <form action="{{route('admin.nome_tabella.store')}}">;
+
+        - nell'attributo method del tag form definisco il metodo POST:
+            <form action="{{route('admin.nome_tabella.store')}}" method="POST">;
+
+        - aggiungo il token di validazione di laravel @csrf:
+            <form action="{{route('admin.nome_tabella.store')}}" method="POST">
+                @csrf
+
+        - aggiungo/modifico un tag input per ogni elemento (colonna) della tabella:
+            - imposto l'attributo type del tag input;
+            - l'attributo for del tag label deve matchare con l'attributo id del tag input;
+            - l'attributo name (importantissimo) deve matchare con il nome della colonna che dovrà andare a riempire.
+
+        - verifico se i dati inseriti dall'utente nel form mi arrivano correttamente:
+            nel controller, all'interno del metodo store():
+                dd($request->all()).
+
