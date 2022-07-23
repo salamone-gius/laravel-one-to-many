@@ -1,3 +1,6 @@
+// --- NUOVO PROGETTO LARAVEL + VUE --- \\
+
+
 1. avvio nuovo progetto laravel (con cartella repo vuota aperta su vs code):
     composer create-project --prefer-dist laravel/laravel:^7.0 .
 
@@ -139,6 +142,12 @@
             <script src="{{asset('js/front.js')}}"></script>
 
         - resetto npm run watch (stacco e rilancio)
+
+
+
+// ------------- CRUD ------------- \\
+
+
 
 11. creo la tabella 'posts' dentro al db:
     php artisan make:migration create_posts_table
