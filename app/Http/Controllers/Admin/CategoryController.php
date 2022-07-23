@@ -111,10 +111,34 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+
+    // oltre ai dati submittati nel form (Request $request (di default)), passo al metodo update() come secondo argomento la singola categoria (dependency injection)
+    public function update(Request $request, Category $category)
     {
-        //
+        // 1. VALIDAZIONE
+        // passo al metodo validate() un array associativo in cui la chiave sarà il dato che devo controllare e come valore le caratteristiche che quel dato deve avere per poter "passare" la validazione
+        $request->validate(
+            [
+                // 'colonna' => 'tutte le proprietà che il dato in ingresso deve avere' (doc: validation rules)
+                'name' => "required|string|max:100|unique:categories,name,{$category->id}",
+            ]
+        );
+
+        // 2. AGGIORNAMENTO DELLA SINGOLA CATEGORIA
+        // passo tutti i dati in arrivo dal form ($request) dentro la variabile $data
+        $data = $request->all();
+        // imposto le colonne ed i relativi dati in arrivo con cui le andrò a riempire
+        $category->name = $data['name'];
+        $category->slug = Str::of($data['name'])->slug('-');
+        // salvo i dati a db in maniera permanente
+        $category->save();
+
+        // 3. REINDIRIZZAMENTO AD UNA VIEW
+        // reindirizzo alla rotta che restituisce la view dell'elenco di tutte le categorie
+        return redirect()->route('admin.categories.index');
     }
+
+    
 
     /**
      * Remove the specified resource from storage.
