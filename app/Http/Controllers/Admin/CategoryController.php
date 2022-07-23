@@ -96,9 +96,12 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+
+    // passo la singola categoria come argomento del metodo edit() (dependency injection)
+    public function edit(Category $category)
     {
-        //
+        // restituisco la view della nuova edit.blade e la versione compatta della singola categoria
+        return view('admin.categories.edit', compact('category'));
     }
 
     /**

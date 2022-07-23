@@ -94,3 +94,35 @@
 
 6. aggiungo i link con le rotte alle pagine blade appena create alle pagine esistenti
 
+// --- UPDATE (sezioni edit() e update() del controller) --- \\
+
+1. in resources > view > admin > nome_tabella creo la pagina edit.blade che mi restituirà la pagina di modifica degli elementi della tabella:
+
+    - estendo il layout di app.blade (@extends) e creo una @section('content') dove inserirò il contenuto (che sarà praticamente identico a create.blade):
+
+        - aggiungo un secondo paramentro al metodo old() in tutti gli input che mi fa comparire i campi più recenti (risalenti all'ultima modifica);
+
+        - nell'attributo action del tag form definisco la rotta che punta all'update per modificare i singoli elementi della tabella (al submit cambierà i valori in tabella) passandogli l'id del singolo elemento che sarà modificato:
+            <form action="{{route('admin.nome_tabella.update', $elemento->id)}}">;
+
+        - nell'attributo method del tag form lascio il metodo POST:
+            <form action="{{route('admin.nome_tabella.update', $elemento->id)}}" method="POST">;
+
+        - lascio il token di validazione di laravel @csrf:
+            <form action="{{route('admin.nome_tabella.update', $elemento->id)}}" method="POST">
+                @csrf;
+
+        - aggiungo il metodo PUT attraverso il metodo @method:
+            <form action="{{route('admin.nome_tabella.update', $elemento->id)}}" method="POST">
+                @csrf
+                @method('PUT')
+
+        - usando gli elementi passatimi dal controller, inserisco tutti i dati;
+ 
+2. in app > Http > Controllers > Admin > NomeTabellaSingolareController.php:
+
+    - passo il singolo elemento della tabella attraverso il suo model come argomento del metodo edit() (dependancy injection);
+    
+    - restituisco la view della nuova edit.blade e la versione compatta del singolo elemento
+
+
