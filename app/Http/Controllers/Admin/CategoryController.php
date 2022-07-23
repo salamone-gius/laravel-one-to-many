@@ -138,16 +138,21 @@ class CategoryController extends Controller
         return redirect()->route('admin.categories.index');
     }
 
-    
-
     /**
      * Remove the specified resource from storage.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+
+    // passo il model e la singola categoria come argomento del metodo destroy (dependancy injection)
+    public function destroy(Category $category)
     {
-        //
+        // cancello la singola categoria attraverso il metodo delete()
+        $category->delete();
+
+        // reindirizzo all'index aggiornato
+        return redirect()->route('admin.categories.index');
     }
+
 }
